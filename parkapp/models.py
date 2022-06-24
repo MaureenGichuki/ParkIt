@@ -58,8 +58,9 @@ class Parkslot(models.Model):
 
 class Bookings(models.Model):
 
-    park_slot = models.ForeignKey(Parkslot, on_delete=models.CASCADE)
-    phone_number = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    car_plate=models.CharField(max_length=20)
+    car_model =models.CharField(max_length=20)
 
     def save_book(self):
         self.save()
